@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import { useEffect, useState, useContext } from "react";
 import AboutSection from "../components/AboutSection";
 import Skills from "../components/skills";
@@ -60,13 +61,15 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Right Image */}
+
+       {/* Right Image */}
         <div className="flex-1 flex justify-center">
-          <div className="relative group">
-            <img
+          <div className="relative group w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64">
+            <Image
               src="/profile.jpg"
               alt="Profile"
-              className={`relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full shadow-lg z-10 transform transition-transform duration-500 group-hover:scale-105`}
+              fill
+              className="object-cover rounded-full shadow-lg z-10 transform transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         </div>

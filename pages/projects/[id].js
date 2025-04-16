@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import Image from 'next/image';
 
 const projects = [
   {
@@ -46,9 +47,11 @@ export default function ProjectDetail() {
     <div className="min-h-screen px-6 py-16 text-white bg-transparent flex flex-col items-center">
       <div className="max-w-2xl w-full bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-md">
         <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-        <img
+        <Image
           src={project.image}
           alt={project.title}
+          width={600} 
+          height={400}
           className="w-full rounded-lg mb-6"
         />
         <p className="text-base mb-4">{project.description}</p>

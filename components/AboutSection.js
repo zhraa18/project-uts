@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../pages/_app";
+import Image from 'next/image';
 
 export default function AboutSection() {
   const controls = useAnimation();
@@ -30,10 +31,12 @@ export default function AboutSection() {
     >
       {/* Kucing Lucu */}
       <div className="relative -mb-8 z-20">
-        <img 
+        <Image 
           src="/kucing.png" 
           alt="Cute Cat" 
-          className="w-20 sm:w-24 md:w-32 h-auto animate-bounce"
+          width={96} // setara dengan w-24
+          height={96} // sesuaikan tinggi agar tidak stretched, bisa juga pakai auto layout
+          className="md:w-32 h-auto animate-bounce"
         />
       </div>
 
