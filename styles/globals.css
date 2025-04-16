@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animasi glow */
+@keyframes glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+.before\:animate-glow::before {
+  animation: glow 4s ease-in-out infinite;
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+}

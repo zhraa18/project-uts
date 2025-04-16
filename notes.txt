@@ -1,0 +1,125 @@
+goal today:
+-ubah warna header jadi dark @@
+-ubah warna dari foto hover @@
+-tambahkan zoom out pada about @@
+-pop up pada my skills, pop up pada tiap tiap elemen satu persatu @@
+-on scroll animation zoom out pada project @@
+-ATUR KEMBALI TULISAN TULISAN DI MY PROJECT @@
+-perbaiki timeline pada project @@
+-tambahkan theme light and dark
+-active contact form
+-rating system
+-atur mobile mode
+-atur komponen light mode
+
+
+
+import { useEffect, useState } from 'react';
+import AboutSection from "../components/AboutSection";
+import Skills from '../components/skills';
+import ProjectTimeline from '../components/project';
+import Contact from '../components/contact';
+
+export default function Home() {
+  const text = "Welcome to My Portfolio!";
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (index < text.length) {
+        setDisplayedText((prev) => prev + text.charAt(index));
+        setIndex(index + 1);
+      } else {
+        // Reset ketik ulang
+        setTimeout(() => {
+          setDisplayedText('');
+          setIndex(0);
+        }, 1000); // tunggu 1 detik sebelum ulang
+      }
+    }, 100); // kecepatan ketik
+
+    return () => clearTimeout(timeout);
+  }, [index]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  return (
+    <div className={theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}>
+      <div className="h-[90vh] flex items-center justify-between p-6">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-8">
+
+          {/* Teks di kiri */}
+          <div className="text-left flex-1">
+            <h1 className="text-5xl font-bold text-blue-400 drop-shadow-md mb-4 min-h-[60px]">
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </h1>
+            <p className="text-lg mt-2 max-w-md">
+              Let's explore my work, skills, and projects!
+            </p>
+          </div>
+
+          {/* Gambar di kanan */}
+          <div className="flex-1 flex justify-center">
+            <div className="relative group">
+              <img 
+                src="/profile.jpg" 
+                alt="Profile" 
+                className="relative w-64 h-64 object-cover rounded-full border-4 border-blue-400 shadow-lg z-10 transform transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section id="about" className="py-20">
+        <AboutSection />
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20">
+        <Skills />
+      </section>
+
+      {/* Project Section */}
+      <section id="project" className="py-20">
+        <ProjectTimeline />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20">
+        <Contact />
+      </section>
+
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className="fixed bottom-4 left-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition"
+      >
+        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+      </button>
+
+      {/* Global styles (wajib di dalam komponen) */}
+      <style jsx global>{`
+        @keyframes ringRotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        .animate-ring {
+          animation: ringRotate 6s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+}
