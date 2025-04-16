@@ -60,7 +60,7 @@ export default function Contact() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className={`text-lg text-center max-w-xl mb-10 ${textColor}`}
       >
-        I'd love to hear from you! Whether you have a question or just want to say hi — feel free to reach out through any platform below.
+        I&apos;d love to hear from you! Whether you have a question or just want to say hi — feel free to reach out through any platform below.
       </motion.p>
 
       <motion.div

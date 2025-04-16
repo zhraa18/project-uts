@@ -57,7 +57,7 @@ export default function Home() {
             <span className="animate-pulse">|</span>
           </h1>
           <p className="text-base sm:text-lg mt-1 mx-auto md:mx-0">
-            Let's explore my work, skills, and projects!
+            Let&apos;s explore my work, skills, and projects!
           </p>
         </div>
 

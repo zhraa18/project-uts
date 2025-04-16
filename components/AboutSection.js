@@ -59,14 +59,14 @@ export default function AboutSection() {
           About Me
         </h1>
         <p className={`text-base sm:text-lg leading-relaxed text-center break-words ${theme === "dark" ? "text-white" : "text-gray-800"}`}>
-          Hello! I'm <span className="font-semibold">Fatimah Zahra</span>, a passionate{" "}
+          Hello! I&apos;m <span className="font-semibold">Fatimah Zahra</span>, a passionate{" "}
           <span className={theme === "dark" ? "text-blue-300" : "text-pink-500"}>Front-End Developer</span> based in Indonesia. 
           I am 21 years old and love creating beautiful and functional web experiences. 
           When I’m not coding, I enjoy{" "}
           <span className={theme === "dark" ? "text-blue-300" : "text-pink-500"}>
             designing interfaces, reading science fiction
           </span>, and exploring new technologies to improve my skills. 
-          Let's build something amazing together!
+          Let&apos;s build something amazing together!
         </p>
       </div>
     </motion.div>
